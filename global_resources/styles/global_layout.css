@@ -1,0 +1,317 @@
+/*general rules : */
+
+:root{
+
+    /*light theme colors (default)*/
+
+    /*page header/menu colors*/
+
+    --menu_color: antiquewhite;
+    --menu_bg_color: #1E1E1E;
+    --menu_page_header_bg_color: #2B2B2B;
+
+    /*page body colors*/
+    --body_bg_color: antiquewhite;
+    --body_color: #1E1E1E;
+
+    /*link colors*/
+    --link_color: antiquewhite;
+    --link_bg_color: #1E1E1E;
+    --link_hover_color: #CBC0B1;
+}
+
+/*when dark theme is activated, html tag class is set to be "dark*, hence the variables are overwritten with the values below*/
+html[data-theme="dark"]{
+
+    /*dark theme*/
+
+    /*dark theme colors*/
+
+    /*page header/menu colors*/
+
+    --menu_color: #1E1E1E;
+    --menu_bg_color: antiquewhite;
+    --menu_page_header_bg_color: #e9ddc1;
+
+    /*page body colors*/
+    --body_bg_color: #1E1E1E;
+    --body_color: antiquewhite;
+
+    /*link colors*/
+    --link_color: #1E1E1E;
+    --link_bg_color: antiquewhite;
+    --link_hover_color: #aa9b75;
+}
+
+*{
+
+    padding: 0;
+    margin: 0;
+    
+    box-sizing: border-box;
+    
+    color: var(--body_color);
+    background-color: var(--body_bg_color);
+
+    font-family: "Open Sans", sans-serif;
+    transition: color 0.35s, background-color 1s;
+}
+
+
+h1{
+
+    font-size: 35px;
+    font-weight: 475;
+    padding: 5px;
+}
+
+h2{
+
+    font-size: 32px;
+    font-weight: 450;
+    padding: 5px;
+}
+
+h3{
+
+    font-size: 30px;
+    font-weight: 450;
+    padding: 5px;
+}
+
+h4{
+
+    font-size: 28px;
+    font-weight: 450;
+    padding: 5px;
+}
+
+h5{
+
+    font-size: 24px;
+    font-weight: 450;
+    padding: 5px;
+}
+
+h6{
+
+    font-size: 22px;
+    font-weight: 450;
+    padding: 5px;
+}
+
+strong{
+
+    font-weight: 550;
+}
+
+/*disable a component, i.e. make the conponent invisible*/
+.disable{
+
+    display: none;
+}
+
+/*same as .disable class, except that before making the component invisible a fade out animation is performed*/
+.disable_fade_out{
+
+    animation: fadeOut 350ms;
+}
+
+/*page header*/
+.page_head{
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--menu_page_header_bg_color);
+}
+
+.page_body{
+
+    width: 100%;
+    min-height: 80vh;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 15px;
+}
+
+/*page footer*/
+.page_foot{
+
+    width: 100%;
+    
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+/*elements to put in case of empty page or a page that still needs to be properly implemented*/
+.empty_page_container{
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+/*menu style*/
+.menu{
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--menu_bg_color);
+}
+
+#home_theme_btns_container{
+
+    justify-self: start;
+
+    display: flex;
+    justify-content: center;
+}
+
+.menu_list{
+
+    justify-self: end;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.menu_elem{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 18px;
+
+    background-color: var(--menu_bg_color);
+
+    [class^="icon-"], [class*=" icon-"]{
+
+        color: var(--menu_color);
+        background-color: var(--menu_bg_color);
+    }
+}
+
+.link{
+
+    color: var(--link_color);
+    background-color: var(--link_bg_color);
+
+    font-size: 25px;
+
+    text-decoration: none;
+    text-align: center;
+}
+
+.link:hover{
+
+    color: var(--link_hover_color);
+}
+
+/*mobile phones css*/
+
+/*apply to every screen size below 769px*/
+@media only screen and (max-width: 768px) {
+    
+    .menu_list{
+
+        display: none;
+    }
+
+    #mobile_menu_btn{
+
+        justify-self: end;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    #mobile_menu_container{
+
+        width: 100%;
+        background-color: var(--menu_page_header_bg_color);
+
+        *{width: 100%;}
+    }
+
+    /*mobile menu*/ 
+    .mobile_menu{
+
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        
+        background-color: var(--menu_bg_color);
+    }
+
+    .mobile_menu_fadeIn{
+
+        animation: fadeIn 350ms;
+    }
+
+    .mobile_menu_list{
+        
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        *{
+
+            background-color: var(--menu_page_header_bg_color);
+        }
+        .menu_elem{
+
+            border: 3px solid var(--menu_bg_color);
+        }
+    }
+}
+
+/*make everything disappear when resizing the window*/
+@media only screen and (min-width: 769px){
+
+    #mobile_menu_btn{
+
+        display: none;
+    }
+    
+    #mobile_menu_id{
+    
+        display: none;
+    }
+}
+
+/*fade-in/fade-out animation*/
+
+@keyframes fadeIn{
+
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut{
+
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}

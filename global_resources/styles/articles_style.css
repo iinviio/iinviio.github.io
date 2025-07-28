@@ -1,0 +1,255 @@
+/*article things*/
+
+:root{
+
+    /*light theme colors (default)*/
+
+    --code_blockquote_bg_color: #FAD9AE;
+    --blockquote_border_color: #1E1E1E;
+
+    --art_color: #1E1E1E;
+    --art_bg_color: antiquewhite;
+    --art_content_link_color: #4A4A4A;
+
+    --art_info_color: grey;
+}
+
+/*when dark theme is activated, html tag class is set to be "dark*, hence the variables are overwritten with the values below*/
+html[data-theme="dark"]{
+
+    /*dark theme*/
+
+    --code_blockquote_bg_color: #2e2b28;
+    --blockquote_border_color: antiquewhite;
+
+    --art_color: antiquewhite;
+    --art_bg_color: #1E1E1E;
+    --art_content_link_color: #beb4a6;
+
+    --art_info_color: #B6B6B6;
+}
+
+/*article container. contains the whole article*/
+.art_container{
+
+    width: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*article titles. (mainly used with h1 tags)*/
+.art_title{
+
+    font-size: 35px;
+    text-align: center;
+    padding: 5px;
+}
+
+/*article generic container. Just use this as container to center things (e.g. title of the artucle, description, the article itself ecc...)*/
+.art_generic_container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    
+    width: 100%;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*This is a more specific container to display the date and the read time of the article*/
+.art_info_container{
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 0px 10px 10px 10px;
+}
+
+/*font(s) and other common things to use in every article*/
+
+/*base font to use in every article*/
+.art_content{
+
+    font-size: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+
+    line-height: 1.6;
+    letter-spacing: -0.08px;
+
+    padding-right: 10px;
+    padding-left: 10px;
+
+    margin: 15px;
+}
+
+/*paragraph default look (like art_content class)*/
+.art_generic_container{
+
+    p{
+
+        font-size: 20px;
+        text-align: justify;
+        text-justify: inter-word;
+        
+        line-height: 1.6;
+        letter-spacing: -0.08px;
+
+        margin: 15px;
+
+    }
+
+    li{
+
+        font-size: 20px;
+        
+        line-height: 1.6;
+        letter-spacing: -0.08px;
+    }
+
+    ol, ul{
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: start;
+        
+        padding: 10px 10px;
+        margin: 10px 10px 10px 32px;
+    }
+
+    pre{
+
+        max-width: 100%;
+        overflow: auto;
+
+        display: flex;
+        justify-content: center;
+
+        padding: 5px;
+        margin: 5px;
+    }
+
+    code{
+
+        width: 100%;
+        overflow: auto;
+
+        font-size: 16px;
+        font-family: monospace;
+        line-height: 1.6;
+        letter-spacing: -0.08px;
+        
+        padding: 10px 10px;
+        margin: 15px;
+        background-color: var(--code_blockquote_bg_color);
+    }
+
+    blockquote{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 18px;
+        font-style: italic;
+        line-height: 1.6;
+        letter-spacing: -0.08px;
+        
+        padding: 10px 10px;
+        margin: 20px;
+        border-left: 3px solid var(--blockquote_border_color);
+        background-color: var(--code_blockquote_bg_color);
+
+        *{
+
+            background-color: var(--code_blockquote_bg_color);
+        }
+    }   
+}
+
+/*base link to use in every article*/
+.art_content_link{
+
+    font-size: 20px;
+
+    line-height: 1.6;
+    letter-spacing: -0.08px;
+
+    [class^="icon-"], [class*=" icon-"]{
+
+        color: var(--art_color);
+        background-color: var(--art_bg_color);
+    }
+}
+
+.art_content_link:hover{
+
+    color: var(--art_content_link_color);
+
+    [class^="icon-"], [class*=" icon-"]{
+
+        color: var(--art_content_link_color);
+        background-color: var(--art_bg_color);
+    }
+
+    transition: color 0.25s, background-color 0.025s;
+}
+
+/*used to display article info such as date, read time*/
+.art_info{
+
+    color: var(--art_info_color);
+
+    font-size: 15px;
+
+    letter-spacing: -0.08px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    [class^="icon-"], [class*=" icon-"]{
+
+        color: var(--art_info_color);
+        margin: 5px;
+    }
+}
+
+/*mobile devices / small screen css*/
+@media only screen and (max-width: 480px) {
+    
+    .art_container{
+
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+    
+    .art_container{
+
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    
+    .art_container{
+
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px){
+    
+    .art_container{
+
+        width: 52%;
+    }
+}
